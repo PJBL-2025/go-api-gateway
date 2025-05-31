@@ -20,17 +20,17 @@ func LoadConfig() Config {
 
 	config := Config{
 		Port:          viper.GetString("PORT"),
-		GoBackendURL:  viper.GetString("GO_BACKEND_URL"),
-		NodeBackendURL: viper.GetString("NODE_BACKEND_URL"),
+		GoBackendURL:  viper.GetString("GO_HOST"),
+		NodeBackendURL: viper.GetString("NODE_HOST"),
 	}
 	if config.Port == "" {
 		config.Port = "8000"
 	}
 	if config.GoBackendURL == "" {
-		config.GoBackendURL = "http://localhost:3000"
+		config.GoBackendURL = "http://app:3000"
 	}
 	if config.NodeBackendURL == "" {
-		config.NodeBackendURL = "http://localhost:5500"
+		config.NodeBackendURL = "http://node-api:5500"
 	}
 
 	return config
